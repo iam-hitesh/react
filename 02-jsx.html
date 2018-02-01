@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!-- Babel Converts ES6 Javascript to Plain Vanilla Javascript -->
+  </head>
+<body>
+    <div id="root"></div>
+    <div id="root1"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+
+  <script type="text/babel"> // Use text/babel instead of text/javascript
+  const rootElement = document.getElementById('root');
+  const element = <div className = "container">Hello World</div>
+  ReactDOM.render(element,rootElement);
+  </script>
+<!-- Other Way -->
+  <script type="text/babel"> // Use text/babel instead of text/javascript
+  const rootElement = document.getElementById('root1');
+  const content = 'Hello World';
+  const element = <div className = "container">{content}</div>
+  ReactDOM.render(element,rootElement);
+  </script>
+
+<!-- Other Way -->
+<script type="text/babel"> // Use text/babel instead of text/javascript
+const rootElement = document.getElementById('root2');
+const content = 'Hello World';
+const myClassName = 'container';
+const element = (
+  <div className = {myClassName+'_hi-there'}>{(() => content)()}</div>
+)
+ReactDOM.render(element,rootElement);
+</script>
+
+<!-- other Way -->
+<script type="text/babel"> // Use text/babel instead of text/javascript
+const rootElement = document.getElementById('root3');
+
+const prop = {
+  className : 'container',
+  children : 'Hello World',
+}
+const element = (<div {...prop} />);
+ReactDOM.render(element,rootElement);
+</script>
+
+</body>
+</html>
