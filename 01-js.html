@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!-- Babel Converts ES6 Javascript to Plain Vanilla Javascript -->
+  </head>
+<body>
+    <div id="root"></div>
+
+  <!-- Old Way of Javascript
+  <script type="text/Javascript">
+    const rootElement = document.getElementById('root');
+    const element = document.createElement('div');
+    element.textContent = 'Hello World';
+    element.className = 'container';
+    rootElement.appendChild(element)
+  </script> -->
+
+  <script type="text/javascript">
+  const rootElement = document.getElementById('root');
+  const element = React.createElement('div',{className:'container',children:['Hello World',' GoodBye World']});
+  ReactDOM.render(element,rootElement)
+  </script>
+
+</body>
+</html>
