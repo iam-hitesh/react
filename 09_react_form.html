@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!-- Babel Converts ES6 Javascript to Plain Vanilla Javascript -->
+  </head>
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+  const rootElement = document.getElementById('root')
+
+  const buttonStyles ={
+    padding:10,
+    margin:10,
+    backgroundColor : '#b3b3b3',
+    fontSize : '22px'
+  }
+
+  const inputStyle = {
+    background : '#fff',
+    padding: 10,
+  }
+
+  // function handleSubmit(event){
+  //
+  // }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log({target:event.target});
+    console.log(event.target[0].value);
+    console.log(event.target.elements.username.value);
+    console.log(this.inputNode.value);
+  }
+
+  class NameForm extends React.Component{
+    render(){
+      return (
+        <form onSubmit={this.handleSubmit}>
+         <label>
+          Name : <input name="name" id="username" style={inputStyle} type="text" placeholder="Your Name" ref={node=>this.inputNode = node}/>
+         </label>
+         <button style={buttonStyles} type="submit">Submit</button>
+        </form>
+      )
+    }
+  }
+  const element = <NameForm/>
+  ReactDOM.render(element,rootElement)
+  </script>
+</body>
+</html>
