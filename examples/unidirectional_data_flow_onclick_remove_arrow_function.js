@@ -20,6 +20,11 @@ class App extends Component{
         const isNotId = (item) => item.id !== id;
         const updatedList = this.state.speakers.filter(isNotId);
         this.setState({ speakers : updatedList});
+        
+        // OR //
+//         removeItem(id){
+//         const updatedList = this.state.speakers.filter((item) => item.id !== id);
+//         this.setState({ speakers : updatedList});
     }
 
     render(){
